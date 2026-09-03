@@ -1,13 +1,16 @@
 // nombre y version del cache. Cambia el numero cuando actualices los
 // archivos para que el navegador descargue la version nueva.
-const CACHE_NAME = 'tienda-skins-v1';
+const CACHE_NAME = 'tienda-skins-v2';
 
 // archivos del "app shell": lo minimo para que la pagina cargue offline
 const APP_SHELL = [
   './',
   './index.html',
+  './login.html',
   './style.css',
+  './auth.css',
   './app.js',
+  './auth.js',
   './firebase-config.js',
   './manifest.json',
   './icons/icon-192.png',

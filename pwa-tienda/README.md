@@ -7,10 +7,17 @@ worker).
 
 ## Archivos
 
-- `index.html` — la página.
-- `style.css` — estilos de las tarjetas.
-- `app.js` — se conecta a Firebase, lee `skins` y dibuja las tarjetas.
-  También registra el service worker.
+- `index.html` — la página de la tienda (ahora exige sesión iniciada).
+- `login.html` — pantalla de inicio de sesión y registro.
+- `style.css` — estilos de las tarjetas y el header, estilo "ZZZ".
+- `auth.css` — estilos del formulario de login/registro y del botón de
+  cerrar sesión (usa las mismas variables de color de `style.css`).
+- `app.js` — revisa que haya sesión iniciada (si no, manda a
+  `login.html`), se conecta a Firebase, lee `skins` y dibuja las
+  tarjetas. También registra el service worker y maneja el botón de
+  cerrar sesión.
+- `auth.js` — lógica de `login.html`: iniciar sesión y crear cuenta con
+  Firebase Auth (correo + contraseña).
 - `firebase-config.js` — aquí pegas la configuración de tu proyecto de
   Firebase (ver paso 1).
 - `manifest.json` — le dice al navegador que esto se puede instalar como
@@ -19,6 +26,12 @@ worker).
   cargue rápido y funcione sin internet.
 - `icons/icon-192.png`, `icons/icon-512.png` — íconos de ejemplo
   (un círculo con una "S"), reemplázalos por los tuyos cuando quieras.
+
+## 0. Habilitar el inicio de sesión con correo/contraseña
+
+En la consola de Firebase: **Authentication** → pestaña **Sign-in
+method** → habilita **Correo electrónico/contraseña**. Sin este paso,
+`login.html` va a mostrar errores al intentar entrar o registrarse.
 
 ## 1. Configurar Firebase
 
@@ -103,8 +116,9 @@ Con la página abierta en Chrome:
 
 ## 5. Qué le falta (para después)
 
-Esto solo lee y muestra las skins, igual que el ejemplo de Unity: no hay
-login ni compra todavía. Si más adelante quieres agregar login web con
-Firebase Auth, es el mismo patrón que usamos en Unity pero con el SDK de
-Auth para web (`firebase-auth.js`) — avísame cuando quieras ese paso y lo
-armamos.
+Ya hay login y registro (`login.html` + `auth.js`, con Firebase Auth de
+correo/contraseña), y `index.html` no deja ver la tienda sin sesión
+iniciada. Lo que todavía no existe es la compra en sí: por ahora solo se
+puede ver el catálogo, no gastar monedas ni guardar qué skins tiene cada
+usuario. Eso implicaría, por ejemplo, guardar bajo
+`usuarios/{uid}/skinsCompradas` en la misma base de datos.

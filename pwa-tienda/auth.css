@@ -1,0 +1,164 @@
+/* Estilos de login/registro. Reutiliza las variables definidas en
+   style.css (--zzz-yellow, --zzz-dark, etc.), asi que este archivo debe
+   cargarse siempre DESPUES de style.css. */
+
+.auth-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.auth-main {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 380px;
+  background: var(--zzz-card-bg);
+  border: 2px solid var(--zzz-gray);
+  padding: 28px 24px;
+  position: relative;
+  transform: skewX(-4deg);
+  box-shadow: 6px 6px 0px #000;
+}
+
+/* Enderezamos el contenido interno para que el texto no quede inclinado */
+.auth-card > * {
+  transform: skewX(4deg);
+}
+
+.auth-tabs {
+  display: flex;
+  margin-bottom: 24px;
+  border: 2px solid var(--zzz-gray);
+}
+
+.auth-tab {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: var(--zzz-white);
+  font-family: 'Teko', sans-serif;
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+  padding: 10px 0;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.auth-tab + .auth-tab {
+  border-left: 2px solid var(--zzz-gray);
+}
+
+.auth-tab.active {
+  background: var(--zzz-yellow);
+  color: #000;
+}
+
+.auth-form {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.auth-form.active {
+  display: flex;
+}
+
+.auth-form label {
+  font-size: 11px;
+  color: var(--zzz-orange);
+  letter-spacing: 1.5px;
+  margin-top: 12px;
+}
+
+.auth-form label:first-of-type {
+  margin-top: 0;
+}
+
+.auth-form input {
+  background: #050507;
+  border: 2px solid var(--zzz-gray);
+  color: var(--zzz-white);
+  font-family: 'Space Grotesk', sans-serif;
+  text-transform: none;
+  font-size: 14px;
+  padding: 10px 12px;
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+
+.auth-form input:focus {
+  border-color: var(--zzz-yellow);
+}
+
+.auth-submit {
+  margin-top: 22px;
+  background: var(--zzz-yellow);
+  color: #000;
+  border: none;
+  font-family: 'Teko', sans-serif;
+  font-size: 1.4rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 10px 0;
+  cursor: pointer;
+  box-shadow: 4px 4px 0px var(--zzz-orange);
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.auth-submit:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px var(--zzz-orange);
+}
+
+.auth-submit:active {
+  transform: translate(0, 0);
+  box-shadow: 2px 2px 0px var(--zzz-orange);
+}
+
+.auth-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+#auth-message {
+  margin-top: 16px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  min-height: 14px;
+  text-align: center;
+}
+
+#auth-message.error {
+  color: var(--zzz-orange);
+}
+
+#auth-message.success {
+  color: var(--zzz-yellow);
+}
+
+/* Boton de cerrar sesion que agregamos al header de index.html */
+.logout-btn {
+  margin-top: 14px;
+  background: transparent;
+  border: 2px solid var(--zzz-orange);
+  color: var(--zzz-orange);
+  font-family: 'Teko', sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 4px 18px;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.logout-btn:hover {
+  background: var(--zzz-orange);
+  color: #000;
+}

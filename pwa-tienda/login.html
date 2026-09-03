@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acceso - Tienda de Skins</title>
+
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0d0e12">
+
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=Teko:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="auth.css">
+</head>
+<body class="auth-body">
+
+  <header class="zzz-header">
+    <div class="title-container">
+      <span class="sub-tag">// SIGNAL_STORE.V3</span>
+      <h1>TIENDA DE SKINS</h1>
+    </div>
+    <p id="status-text">[ ACCESO REQUERIDO ]</p>
+  </header>
+
+  <main class="auth-main">
+    <div class="auth-card">
+
+      <!-- Pestañas para alternar entre login y registro -->
+      <div class="auth-tabs">
+        <button type="button" class="auth-tab active" data-tab="login">Ingresar</button>
+        <button type="button" class="auth-tab" data-tab="register">Registrarse</button>
+      </div>
+
+      <!-- Formulario de inicio de sesion -->
+      <form id="login-form" class="auth-form active">
+        <label for="login-email">Correo</label>
+        <input type="email" id="login-email" placeholder="usuario@correo.com" required>
+
+        <label for="login-password">Contraseña</label>
+        <input type="password" id="login-password" placeholder="••••••••" required>
+
+        <button type="submit" class="auth-submit">Entrar</button>
+      </form>
+
+      <!-- Formulario de registro -->
+      <form id="register-form" class="auth-form">
+        <label for="register-name">Nombre de agente</label>
+        <input type="text" id="register-name" placeholder="Tu nombre" required>
+
+        <label for="register-email">Correo</label>
+        <input type="email" id="register-email" placeholder="usuario@correo.com" required>
+
+        <label for="register-password">Contraseña</label>
+        <input type="password" id="register-password" placeholder="Mínimo 6 caracteres" required minlength="6">
+
+        <label for="register-password-confirm">Confirmar contraseña</label>
+        <input type="password" id="register-password-confirm" placeholder="••••••••" required minlength="6">
+
+        <button type="submit" class="auth-submit">Crear cuenta</button>
+      </form>
+
+      <p id="auth-message"></p>
+    </div>
+  </main>
+
+  <script type="module" src="auth.js"></script>
+</body>
+</html>

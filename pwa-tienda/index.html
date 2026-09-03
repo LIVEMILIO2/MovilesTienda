@@ -10,6 +10,7 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=Teko:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="auth.css">
 </head>
 <body>
   <header class="zzz-header">
@@ -18,6 +19,8 @@
       <h1>TIENDA DE SKINS</h1>
     </div>
     <p id="status-text">[ CONECTANDO CON FIREBASE... ]</p>
+    <p id="user-greeting" style="display:none; margin-top: 10px; font-size: 13px; letter-spacing: 1px;"></p>
+    <button id="logout-btn" class="logout-btn" style="display:none;">Cerrar sesión</button>
   </header>
 
   <main id="skins-grid"></main>
