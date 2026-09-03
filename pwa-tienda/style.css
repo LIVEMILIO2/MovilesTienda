@@ -1,0 +1,136 @@
+:root {
+  --zzz-yellow: #e6ff00;
+  --zzz-dark: #0a0b0e;
+  --zzz-card-bg: #14161d;
+  --zzz-orange: #ff3c00;
+  --zzz-white: #ffffff;
+  --zzz-gray: #242834;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  background-color: var(--zzz-dark);
+  color: var(--zzz-white);
+  min-height: 100vh;
+  padding: 40px 20px;
+  text-transform: uppercase;
+  /* Fondo con trama retro-futurista tipo ZZZ */
+  background-image: 
+    radial-gradient(circle at 50% 30%, rgba(230, 255, 0, 0.08) 0%, transparent 70%),
+    linear-gradient(45deg, #111319 25%, transparent 25%), 
+    linear-gradient(-45deg, #111319 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #111319 75%),
+    linear-gradient(-45deg, transparent 75%, #111319 75%);
+  background-size: 100% 100%, 8px 8px, 8px 8px, 8px 8px, 8px 8px;
+}
+
+.zzz-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.title-container {
+  display: inline-block;
+  background: #000;
+  padding: 8px 28px;
+  transform: skewX(-12deg);
+  border: 3px solid var(--zzz-yellow);
+  box-shadow: 6px 6px 0px var(--zzz-orange);
+  position: relative;
+}
+
+.sub-tag {
+  display: block;
+  font-size: 11px;
+  color: var(--zzz-orange);
+  letter-spacing: 2px;
+  text-align: left;
+}
+
+h1 {
+  font-family: 'Teko', sans-serif;
+  font-size: 3.8rem;
+  line-height: 0.85;
+  color: var(--zzz-yellow);
+  text-shadow: 3px 3px 0px #000;
+}
+
+#status-text {
+  margin-top: 18px;
+  font-size: 13px;
+  color: var(--zzz-yellow);
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+#skins-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 24px;
+  max-width: 950px;
+  margin: 0 auto;
+}
+
+/* Tarjetas generadas dinámicamente por JS */
+.skin-card {
+  background: var(--zzz-card-bg);
+  border: 2px solid var(--zzz-gray);
+  padding: 12px;
+  position: relative;
+  transform: skewX(-4deg);
+  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 5px 5px 0px #000;
+}
+
+.skin-card::before {
+  content: "ITEM";
+  position: absolute;
+  top: 4px;
+  right: 8px;
+  font-size: 9px;
+  color: rgba(255, 255, 255, 0.3);
+  font-weight: bold;
+}
+
+.skin-card:hover {
+  transform: skewX(-4deg) translateY(-6deg);
+  border-color: var(--zzz-yellow);
+  box-shadow: 8px 10px 0px var(--zzz-yellow);
+}
+
+.skin-card img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  background: #050507;
+  border: 2px solid #000;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.skin-card h3 {
+  font-family: 'Teko', sans-serif;
+  font-size: 1.7rem;
+  line-height: 0.9;
+  color: var(--zzz-white);
+  margin-bottom: 8px;
+  text-align: left;
+  letter-spacing: 0.5px;
+}
+
+.skin-card p {
+  background: var(--zzz-yellow);
+  color: #000;
+  display: inline-block;
+  padding: 2px 10px;
+  font-weight: bold;
+  font-size: 14px;
+  transform: skewX(4deg);
+  box-shadow: 2px 2px 0px #000;
+}
