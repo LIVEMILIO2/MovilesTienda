@@ -116,9 +116,14 @@ Con la página abierta en Chrome:
 
 ## 5. Qué le falta (para después)
 
-Ya hay login y registro (`login.html` + `auth.js`, con Firebase Auth de
-correo/contraseña), y `index.html` no deja ver la tienda sin sesión
-iniciada. Lo que todavía no existe es la compra en sí: por ahora solo se
-puede ver el catálogo, no gastar monedas ni guardar qué skins tiene cada
-usuario. Eso implicaría, por ejemplo, guardar bajo
-`usuarios/{uid}/skinsCompradas` en la misma base de datos.
+Ya hay login/registro, compra de skins (resta monedas con una transacción
+atómica igual que `StoreManager.cs` en Unity), saldo visible, y una
+pestaña "Comprados" con lo que ya adquiriste. Todo esto lee y escribe los
+mismos nodos de Firebase que usa la app de Unity (`skins`,
+`users/{uid}/coins`, `users/{uid}/purchased`), así que comprar algo desde
+un lado se refleja del otro apenas se sincroniza Firebase.
+
+Importante: para que `runTransaction` pueda escribir, las reglas de tu
+Realtime Database deben dejar que cada usuario lea/escriba su propio nodo
+bajo `users/{uid}`. Si nunca las tocaste, revisa el paso de reglas que te
+pasé para Unity — son las mismas para la PWA.

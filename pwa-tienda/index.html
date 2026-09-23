@@ -19,12 +19,20 @@
       <h1>TIENDA DE SKINS</h1>
     </div>
     <p id="status-text">[ CONECTANDO CON FIREBASE... ]</p>
-    <p id="user-greeting" style="display:none; margin-top: 10px; font-size: 13px; letter-spacing: 1px;"></p>
+    <p id="user-greeting" style="display:none;"></p>
+    <p id="coins-text" class="coins-badge" style="display:none;"></p>
     <button id="logout-btn" class="logout-btn" style="display:none;">Cerrar sesión</button>
   </header>
 
-  <main id="skins-grid"></main>
+  <nav class="store-tabs" id="store-tabs" style="display:none;">
+    <button type="button" class="store-tab active" data-view="tienda">Tienda</button>
+    <button type="button" class="store-tab" data-view="comprados">Comprados</button>
+  </nav>
+
+  <main id="skins-grid" class="store-view active"></main>
+  <main id="comprados-grid" class="store-view"></main>
 
   <script type="module" src="app.js"></script>
+
 </body>
 </html>

@@ -69,13 +69,7 @@ h1 {
   font-weight: bold;
 }
 
-#skins-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 24px;
-  max-width: 950px;
-  margin: 0 auto;
-}
+/* el layout de grilla ahora lo controla .store-view, ver mas abajo */
 
 /* Tarjetas generadas dinámicamente por JS */
 .skin-card {
@@ -133,4 +127,102 @@ h1 {
   font-size: 14px;
   transform: skewX(4deg);
   box-shadow: 2px 2px 0px #000;
+}
+
+/* --- Agregado: monedas, pestañas y compra --- */
+
+#user-greeting {
+  margin-top: 10px;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+.coins-badge {
+  display: inline-block;
+  margin-top: 10px;
+  background: #000;
+  color: var(--zzz-yellow);
+  border: 2px solid var(--zzz-yellow);
+  padding: 4px 14px;
+  font-family: 'Teko', sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+}
+
+.store-tabs {
+  max-width: 950px;
+  margin: 0 auto 24px auto;
+  display: flex;
+  border: 2px solid var(--zzz-gray);
+}
+
+.store-tab {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: var(--zzz-white);
+  font-family: 'Teko', sans-serif;
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+  padding: 10px 0;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.store-tab + .store-tab {
+  border-left: 2px solid var(--zzz-gray);
+}
+
+.store-tab.active {
+  background: var(--zzz-yellow);
+  color: #000;
+}
+
+.store-view {
+  display: none;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 24px;
+  max-width: 950px;
+  margin: 0 auto;
+}
+
+.store-view.active {
+  display: grid;
+}
+
+.store-view .empty-msg {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: var(--zzz-gray);
+  font-size: 13px;
+  letter-spacing: 1px;
+  padding: 30px 0;
+}
+
+.skin-card .buy-btn {
+  margin-top: 10px;
+  width: 100%;
+  background: var(--zzz-orange);
+  color: #000;
+  border: none;
+  font-family: 'Teko', sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 6px 0;
+  cursor: pointer;
+}
+
+.skin-card .buy-btn:hover {
+  filter: brightness(1.15);
+}
+
+.skin-card .buy-btn:disabled {
+  background: var(--zzz-gray);
+  color: rgba(255, 255, 255, 0.6);
+  cursor: not-allowed;
+}
+
+.skin-card.owned {
+  border-color: var(--zzz-yellow);
 }

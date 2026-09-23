@@ -1,6 +1,6 @@
 // nombre y version del cache. Cambia el numero cuando actualices los
 // archivos para que el navegador descargue la version nueva.
-const CACHE_NAME = 'tienda-skins-v2';
+const CACHE_NAME = 'tienda-skins-v3';
 
 // archivos del "app shell": lo minimo para que la pagina cargue offline
 const APP_SHELL = [
